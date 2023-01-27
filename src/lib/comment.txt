@@ -1,0 +1,55 @@
+<script lang="ts">
+  import { beforeNavigate } from '$app/navigation';
+
+  let unsaved: true = true;
+  let value: number = 0;
+
+  beforeNavigate(({ from, to, cancel }: any) => {
+    const a: true = confirm('are you sure?')
+    console.log(a)
+    if (!a) {
+      cancel();
+    }
+  });
+  const toggle: () => void = () => {
+    unsaved=!unsaved
+    console.log(unsaved)
+  }
+</script>
+
+<h1 class="text-3xl font-bold underline">
+<a href="/login">yo</a>
+  Hello world!
+</h1>
+<button on:click={toggle}>Ok</button>
+<style lang="postcss">
+  :global(html) {
+    background-color: theme(colors.gray.100);
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+import type { LayoutServerLoad } from './$types';
+import { redirect } from '@sveltejs/kit';
+export const load = (async ({ url }: any) => {
+  let a = false;
+
+  if (a && url.pathname === '/login') {
+    throw redirect(302, '/');
+  }
+  return {
+    sections: [
+      { slug: 'profile', title: 'Profile' },
+      { slug: 'notifications', title: 'Notifications' }
+    ]
+  };
+}) satisfies LayoutServerLoad;

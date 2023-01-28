@@ -48,7 +48,9 @@
 
 <!-- component -->
 <main>
-	<nav class="relative px-4 py-4 flex justify-between items-center bg-white dark:bg-slate-800">
+	<nav
+		class="w-full fixed top-0 left-0 px-10 py-4 flex z-20 my-0 flex justify-between items-center bg-white dark:bg-slate-800"
+	>
 		<a class="text-3xl font-bold leading-none" href="/">
 			<svg class="h-10" alt="logo" viewBox="0 0 10240 10240">
 				<path

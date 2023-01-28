@@ -1,15 +1,6 @@
 import type { LayoutServerLoad } from './$types';
-import { redirect } from '@sveltejs/kit';
-export const load = (async ({ url }: any) => {
-  let a = false;
+import { browser } from '$app/environment';
 
-  if (a && url.pathname === '/login') {
-    throw redirect(302, '/');
-  }
-  return {
-    sections: [
-      { slug: 'profile', title: 'Profile' },
-      { slug: 'notifications', title: 'Notifications' }
-    ]
-  };
+export const load = (async ({ url }: any) => {
+
 }) satisfies LayoutServerLoad;
